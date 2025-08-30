@@ -1,6 +1,8 @@
 import { toast } from "react-toastify";
 import { PRODUCT_CREATE_SUCCESS, PRODUCT_CREATE_FAILURE, PRODUCT_GET_SUCCESS, PRODUCT_GET_FAILURE, PRODUCT_UPDATE_SUCCESS, PRODUCT_UPDATE_FAILURE, DELETE_PRODUCT_SUCCESS, DELETE_PRODUCT_FAILURE } from "../Constant";
-const productApi = import.meta.env.VITE_PRODUCT_API;
+const productApi = import.meta.env.VITE_API;
+
+
 // create product 
 export const createProduct = (productData: any) => async (dispatch: any) => {
     try {
@@ -23,7 +25,7 @@ export const createProduct = (productData: any) => async (dispatch: any) => {
             });
         };
 
-        const response = fetch(`${productApi}/createproduct`, {
+        const response = fetch(`${productApi}/api/v1/product/createproduct`, {
             method: 'POST',
             headers: {
                 "Authorization": `Bearer ${token}`
@@ -54,7 +56,7 @@ export const createProduct = (productData: any) => async (dispatch: any) => {
 // get product details 
 export const getProducts = () => async (dispatch: any) => {
     try {
-        const response = await fetch(`${productApi}/getallproducts`, {
+        const response = await fetch(`${productApi}/api/v1/product/getallproducts`, {
             credentials: "include",
         });
         const data = await response.json();
@@ -94,7 +96,7 @@ export const updateProduct = (id: string, updatedData: any) => async (dispatch: 
             });
         }
 
-        const response = await fetch(`${productApi}/updateproduct/${id}`, {
+        const response = await fetch(`${productApi}/api/v1/product/updateproduct/${id}`, {
             method: 'PUT',
             headers: {
                 "Authorization": `Bearer ${token}`
@@ -132,7 +134,7 @@ export const deletProduct = (id: string) => async (dispatch: any) => {
         if (!token) {
             return toast("User token not available");
         }
-        const response = await fetch(`${productApi}/deleteproduct/${id}`, {
+        const response = await fetch(`${productApi}/api/v1/product/deleteproduct/${id}`, {
             method: 'DELETE',
             headers: {
                 "Authorization": `Bearer ${token}`

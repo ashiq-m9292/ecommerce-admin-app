@@ -1,13 +1,13 @@
 
 import { USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE, USER_LOGOUT, GET_USER_SUCCESS, GET_USER_FAILURE } from "../Constant";
 import { toast } from "react-toastify";
-const userApi = import.meta.env.VITE_USER_API;
+const userApi = import.meta.env.VITE_API;
 
 
 // user login function 
 export const userLogin = (email: string, password: string) => async (dispatch: any) => {
     try {
-        const response = await fetch(`${userApi}/loginuser`, {
+        const response = await fetch(`${userApi}/api/v1/user/loginuser`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -36,7 +36,7 @@ export const logoutUser = () => async (dispatch: any) => {
         if (!token) {
             return toast("User token not available");
         };
-        const response = await fetch(`${userApi}/logoutuser`, {
+        const response = await fetch(`${userApi}/api/v1/user/logoutuser`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -66,7 +66,7 @@ export const getUser = () => async (dispatch: any) => {
             toast("User token not available");
             return;
         };
-        const response = await fetch(`${userApi}/getuser`, {
+        const response = await fetch(`${userApi}/api/v1/user/getuserprofile`, {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${token}`
