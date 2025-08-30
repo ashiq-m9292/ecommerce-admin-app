@@ -22,14 +22,14 @@ const ProductPage = () => {
 
     return (
         <div>
-            <h1>Products</h1>
+            <h1 style={{ textAlign: "center", marginInline: 200 }}>Products</h1>
             {loading ? <p>Loading...</p> : null}
             {error ? <p style={{ color: "red" }}>{error}</p> : null}
             <ul>
                 {
                     products.length ?
                         products.map((product: any) => (
-                            <Card sx={{ maxWidth: 400, maxHeight: 500, display: 'inline-grid', m: 2, overflow: 'hidden', cursor: 'pointer' }} key={product._id}>
+                            <Card sx={{ width: 400, height: 500, display: 'inline-grid', m: 2, overflow: 'hidden', cursor: 'pointer', flexWrap: "wrap" }} key={product._id}>
                                 <CardMedia
                                     component="img"
                                     sx={{ width: 400, height: 300, objectFit: 'cover', transform: 'scale(1)', transition: 'transform 0.2s ease-in-out', '&:hover': { transform: 'scale(1.1)' } }}

@@ -38,7 +38,7 @@ const CreateOrder = () => {
         >
             {({ handleChange, handleBlur, handleSubmit, values, errors, touched, setFieldValue }) => (
                 <Form onSubmit={handleSubmit}>
-                    <Box marginInline="40px">
+                    <Box sx={{ display: "flex", flexDirection: "column", m: 2 }}>
                         <h1>create Order Form</h1>
                         <TextField
                             label="Product Name"
@@ -114,6 +114,7 @@ const CreateOrder = () => {
                             )}
                         </div>
                         <Button
+                            sx={{ width: { xs: '100%', sm: '20%', md: '20%', lg: '20%', xl: '20%', xxl: '20%' } }}
                             type="submit"
                             variant="contained"
                             color="primary"

@@ -22,7 +22,7 @@ const Login = () => {
             >
                 {({ handleSubmit, handleChange, values, errors, touched }) => (
                     <Form onSubmit={handleSubmit}>
-                        <Box sx={{ m: 2 }}>
+                        <Box sx={{ display: "flex", flexDirection: "column", m: 2 }}>
                             <h1>Login Page</h1>
                             <TextField
                                 label="Email"
@@ -47,7 +47,7 @@ const Login = () => {
                                 error={touched.password && Boolean(errors.password)}
                                 helperText={touched.password && errors.password}
                             />
-                            <Button type="submit" variant="contained" color="primary">
+                            <Button sx={{ mt: 2, width: { xs: "100%", sm: "20%", md: "20%", lg: "20%", xl: "20%", xxl: "20%" } }} type="submit" variant="contained" color="primary">
                                 Login
                             </Button>
                         </Box>

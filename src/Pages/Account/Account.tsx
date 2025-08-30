@@ -15,9 +15,9 @@ const Account = () => {
   }, [dispatch]);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 50, marginInline: 60, marginBlock: 10 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 50, marginInline: 60, marginBlock: 20, flexWrap: "wrap" }}>
       <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 1 }}>
-        <Avatar alt="Remy Sharp" src={userInfo?.profilePicture?.url} sx={{ width: 200, height: 200, objectFit: "cover" }} />
+        <Avatar alt="Remy Sharp" src={userInfo?.profilePicture?.url} sx={{ width: { xs: 100, sm: 120, md: 140, lg: 160, xl: 180 }, height: { xs: 100, sm: 120, md: 140, lg: 160, xl: 180 }, objectFit: "cover" }} />
         <Typography variant="h5">
           {userInfo?.email}
         </Typography>
@@ -34,7 +34,7 @@ const Account = () => {
         </Typography>
       </Box>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <Button onClick={handleLogout} variant="contained" color="secondary">Logout</Button>
+        <Button sx={{ width: { xs: "100%", sm: "auto", md: "auto", lg: "20%", xl: "20%" } }} onClick={handleLogout} variant="contained" color="secondary">Logout</Button>
       </div>
     </div>
   );
